@@ -1,7 +1,6 @@
 #### 설치 참고 링크
 
-[설치 설명](https://github.com/biospin/BigBio/blob/master/part03/week01_160503/hadoop/cloude
-ra_install.md )
+[설치 설명](https://github.com/biospin/BigBio/blob/master/part03/week01_160503/hadoop/cloudera_install.md )
 
 #### pssh 다운로드
 
