@@ -25,3 +25,6 @@ yum install -y python-pip
 ## 위는 pip 설치되어 있을시 생략가능
 pip install psycopg2==2.7.5 --ignore-installed
 ```
+
+#### 삭제
+[삭제설명](https://www.cloudera.com/documentation/enterprise/latest/topics/cm_ig_uninstall_cm.html)
