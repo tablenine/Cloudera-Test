@@ -26,5 +26,29 @@ yum install -y python-pip
 pip install psycopg2==2.7.5 --ignore-installed
 ```
 
-#### 삭제
-[삭제설명](https://www.cloudera.com/documentation/enterprise/latest/topics/cm_ig_uninstall_cm.html)
+### 삭제
+[삭제 참고 링크](https://www.cloudera.com/documentation/enterprise/latest/topics/cm_ig_uninstall_cm.html)
+
+#### 서비스 정지
+#### pacel 삭제
+#### cluster 삭제
+#### manger 서버 uninstall
+``` bash
+$ /opt/cloudera/installer/uninstall-cloudera-manager.sh
+```
+#### agent 삭제
+``` bash
+systemctl stop supervisord
+yum remove 'cloudera-manager-*'
+yum clean all
+umount cm_processes
+rm -Rf /usr/share/cmf /var/lib/cloudera* /var/cache/yum/cloudera* /var/log/cloudera* /var/run/cloudera*
+
+rm /tmp/.scm_prepare_node.lock
+rm -Rf /var/lib/flume-ng /var/lib/hadoop* /var/lib/hue /var/lib/navigator /var/lib/oozie /var/lib/solr /var/lib/sqoop* /var/lib/zookeeper
+rm -rf /dfs
+
+systemctl daemon-reload
+```
+
+
