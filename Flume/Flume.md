@@ -63,3 +63,23 @@ java.lang.NoClassDefFoundError: org/apache/hadoop/hive/metastore/api/MetaExcepti
 ``` bash
 --classpath "/opt/cloudera/parcels/CDH-6.1.1-1.cdh6.1.1.p0.875250/lib/hive-hcatalog/share/hcatalog/*:/opt/cloudera/parcels/CDH-6.1.1-1.cdh6.1.1.p0.875250/lib/hive/lib/*" 추가
 ```
+
+### 에러2
+``` bash
+Error while compiling statement: FAILED: SemanticException [Error 10265]: This command is not allowed on an ACID table db.table with a non-ACID transaction manager. Failed command: 
+```
+
+### 조치2
+``` sql
+SET hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DbTxnManager;
+
+client side
+SET hive.support.concurrency=true;
+SET hive.enforce.bucketing=true;
+SET hive.exec.dynamic.partition.mode=nonstrict;
+
+servier side
+SET hive.compactor.initiator.on=true;
+SET hive.compactor.worker.threads=1;
+```
+#### 설정파일에 필드네임 작성시 띄어쓰기 하지 말것!
