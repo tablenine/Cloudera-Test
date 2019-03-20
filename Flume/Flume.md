@@ -50,3 +50,16 @@ echo [12] >> /tmp/test3.log
 ``` bash 
 bin/kafka-console-consumer.sh --bootstrap-server hadoop1:6667 --topic tableninetopic --from-beginning
 ```
+
+
+## hive Sink Test
+
+### 에러1
+```
+java.lang.NoClassDefFoundError: org/apache/hive/hcatalog/streaming/RecordWriter
+java.lang.NoClassDefFoundError: org/apache/hadoop/hive/metastore/api/MetaException
+```
+### 조치1
+``` bash
+--classpath "/opt/cloudera/parcels/CDH-6.1.1-1.cdh6.1.1.p0.875250/lib/hive-hcatalog/share/hcatalog/*:/opt/cloudera/parcels/CDH-6.1.1-1.cdh6.1.1.p0.875250/lib/hive/lib/*" 추가
+```
